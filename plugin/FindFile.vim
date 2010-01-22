@@ -1,5 +1,9 @@
-" vim600: set foldmethod=marker:
-" $Id:$
+" ============================================================================
+" File:        FindFile.vim
+" Description: Open file quickly by using autocomplete
+" Maintainer:  William Lee <wl1012 at yahoo dot com>
+" Last Change: 21 Jan, 2010
+" ============================================================================
 " PURPOSE: {{{
 "   - FindFile: Switch to an auto-completing buffer to open a file quickly.
 "
