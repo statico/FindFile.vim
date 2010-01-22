@@ -1,3 +1,94 @@
 *FindFile.txt*       Open file quickly by using autocomplete
 
-TODO
+FindFile.vim                                               *findfile*
+
+PURPOSE                         |findfile-introduction|
+REQUIREMENTS                    |findfile-installation|
+USAGE                           |findfile-usage|
+CREDITS                         |findfile-modes|
+
+==============================================================================
+PURPOSE                                                *findfile-introduction*
+
+FindFile lets you switch to an auto-completing buffer to open a file quickly.
+
+
+==============================================================================
+REQUIREMENTS                                           *findfile-requirements*
+
+This plugin requires Vim version 7.0 or later.
+
+==============================================================================
+USAGE                                                         *findfile-usage*
+
+                                                        *:FindFileCache* *:FC*
+Initializing the Cache ~
+
+If you are working on a project, go to the root directory of the project,
+then execute:
+>
+        :FindFileCache .
+<
+  or
+>
+        :FC .
+<
+This will recursively parse the directory and create the internal cache.
+
+You can also put in multiple arguments in |:FC|:
+>
+        :FC /dir1 /dir2 /dir3
+<
+You can add to the cache by calling |:FC| again.  File with the same path
+will not be added to the cache twice.
+
+                                                             *:FindFile* *:FF*
+Finding Files ~
+
+To find a file:
+
+>
+        :FindFile
+<
+  or
+>
+        :FF
+<
+
+This opens a scratch buffer that you can type in the file name.  Press
+<Esc> will quit the buffer, while <Enter> will select and edit the file.
+
+                                                  *:FindFileCacheClear* *:FCC*
+Clearing the Cache ~
+
+To clear the internal cache, do:
+
+>
+        :FindFileCacheClear
+<
+  or
+>
+        :FCC
+<
+You can put the following lines in your |vimrc| in order to invoke
+FindFile quickly by hitting <C-f>:
+>
+        :nmap <C-f> :FindFile<CR>
+<
+By default, all the *.o, *.pyc, and */tmp/* files will be ignored, in
+addition to the wildignore patterns.  You can customize this by setting in
+your |vimrc|:
+>
+        let g:FindFileIgnore = ['*.o', '*.pyc', '*/tmp/*']
+<
+
+==============================================================================
+CREDITS                                                     *findfile-credits*
+
+Please mail any comments/suggestions/patches to:
+>
+        William Lee <wl1012@yahoo.com>
+<
+
+==============================================================================
+ vim:tw=78:ts=8:ft=help:norl:
